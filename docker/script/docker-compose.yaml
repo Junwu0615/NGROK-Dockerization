@@ -1,0 +1,12 @@
+version: '3.9'
+
+services:
+  task:
+    image: wernight/ngrok
+    container_name: NGROK-Dockerization
+    command: ngrok http http://host.docker.internal:5000 --log stdout
+    env_file:
+      - .env
+    ports:
+      - '4040:4040'
+    restart: always
